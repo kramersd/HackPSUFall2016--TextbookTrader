@@ -48,6 +48,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable() {
                 public void run() {
+                    setSize(590, 405);
                     initComponents();
                 }
             });
@@ -406,12 +407,14 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
     private void loginLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginLoginButtonActionPerformed
         // TODO add your handling code here:
-        if(LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getSelectedText())) {
+        /*if(LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getSelectedText())) {
             CardLayout cl = (CardLayout)(boxPanel.getLayout());
             cl.next(boxPanel);
         } else {
             
-        }
+        }*/
+        CardLayout cl = (CardLayout)(boxPanel.getLayout());
+            cl.next(boxPanel);
         
         
     }//GEN-LAST:event_loginLoginButtonActionPerformed
@@ -421,7 +424,8 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void categoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryComboBoxActionPerformed
-        // TODO add your handling code here:
+        CardLayout cl = (CardLayout)(boxPanel.getLayout());
+        cl.next(boxPanel);
     }//GEN-LAST:event_categoryComboBoxActionPerformed
 
 
