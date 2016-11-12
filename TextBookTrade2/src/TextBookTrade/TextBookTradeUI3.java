@@ -420,12 +420,12 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     }//GEN-LAST:event_loginLoginButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        CardLayout cl = (CardLayout)(boxPanel.getLayout());
+        cl.next(boxPanel);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void categoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryComboBoxActionPerformed
-        CardLayout cl = (CardLayout)(boxPanel.getLayout());
-        cl.next(boxPanel);
+        // TODO add your handling code here:
     }//GEN-LAST:event_categoryComboBoxActionPerformed
 
 
