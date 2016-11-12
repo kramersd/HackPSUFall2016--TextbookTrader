@@ -100,6 +100,8 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        setSize(new java.awt.Dimension(550, 400));
+
         boxPanel.setLayout(new java.awt.CardLayout());
 
         loginUsernameLabel.setText("Username:");
@@ -128,7 +130,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                 .addComponent(loginLoginButton)
                 .addGap(233, 233, 233))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                .addGap(0, 194, Short.MAX_VALUE)
+                .addGap(0, 239, Short.MAX_VALUE)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(loginTitleLabel)
                     .addGroup(loginPanelLayout.createSequentialGroup()
@@ -368,7 +370,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
