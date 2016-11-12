@@ -112,9 +112,14 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
         loginPasswordLabel.setText("Password:");
 
-        loginPasswordTextField.setText("jPasswordField1");
+        loginPasswordTextField.setText("user1");
 
-        loginUsernameTextField.setText("jTextField1");
+        loginUsernameTextField.setText("user1");
+        loginUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginUsernameTextFieldActionPerformed(evt);
+            }
+        });
 
         loginTitleLabel.setText("Textbook Trader Login");
 
@@ -122,28 +127,32 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         loginPanel.setLayout(loginPanelLayout);
         loginPanelLayout.setHorizontalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(loginLoginButton)
-                .addGap(233, 233, 233))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                .addGap(0, 239, Short.MAX_VALUE)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(loginTitleLabel)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(loginUsernameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(loginPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(loginTitleLabel))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                        .addGap(0, 179, Short.MAX_VALUE)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loginUsernameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(loginPasswordLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(loginUsernameTextField)
-                            .addComponent(loginPasswordTextField))))
-                .addGap(192, 192, 192))
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(loginLoginButton)
+                                .addGap(30, 30, 30))
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(loginPasswordTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(loginUsernameTextField))))))
+                .addGap(239, 239, 239))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(95, Short.MAX_VALUE)
                 .addComponent(loginTitleLabel)
                 .addGap(18, 18, 18)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,7 +220,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                     .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         bookListing.setColumns(20);
@@ -245,7 +254,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewBookListingButton)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         logoutButton.setText("Logout");
@@ -379,7 +388,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                         .addComponent(isbnLabel)
                         .addGap(18, 18, 18)
                         .addComponent(courseLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -402,14 +411,15 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
     private void loginLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginLoginButtonActionPerformed
         // TODO add your handling code here:
-        /*if(LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getSelectedText())) {
+        
+        if(LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getSelectedText())) {
             CardLayout cl = (CardLayout)(boxPanel.getLayout());
             cl.next(boxPanel);
         } else {
-            
-        }*/
-        CardLayout cl = (CardLayout)(boxPanel.getLayout());
-            cl.next(boxPanel);
+            System.out.println("Hello");
+        }
+        //CardLayout cl = (CardLayout)(boxPanel.getLayout());
+        //cl.next(boxPanel);
         
         
     }//GEN-LAST:event_loginLoginButtonActionPerformed
@@ -422,6 +432,10 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private void searchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchComboBoxActionPerformed
+
+    private void loginUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginUsernameTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
