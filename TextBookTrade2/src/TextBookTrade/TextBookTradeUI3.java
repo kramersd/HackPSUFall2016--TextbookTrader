@@ -71,9 +71,9 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         loginUsernameLabel = new javax.swing.JLabel();
         loginLoginButton = new javax.swing.JButton();
         loginPasswordLabel = new javax.swing.JLabel();
-        loginPasswordTextField = new javax.swing.JPasswordField();
         loginUsernameTextField = new javax.swing.JTextField();
         loginTitleLabel = new javax.swing.JLabel();
+        loginPasswordTextField = new javax.swing.JTextField();
         mainPanel = new javax.swing.JPanel();
         searchResultsPane = new javax.swing.JPanel();
         searchTextField = new javax.swing.JTextField();
@@ -112,8 +112,6 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
         loginPasswordLabel.setText("Password:");
 
-        loginPasswordTextField.setText("user1");
-
         loginUsernameTextField.setText("user1");
         loginUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +120,8 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         });
 
         loginTitleLabel.setText("Textbook Trader Login");
+
+        loginPasswordTextField.setText("user1");
 
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
@@ -133,20 +133,21 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(loginTitleLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                        .addGap(0, 179, Short.MAX_VALUE)
+                        .addGap(179, 179, 179)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(loginUsernameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(loginPasswordLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(loginUsernameTextField))
                             .addGroup(loginPanelLayout.createSequentialGroup()
                                 .addGap(44, 44, 44)
                                 .addComponent(loginLoginButton)
-                                .addGap(30, 30, 30))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(loginPasswordTextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(loginUsernameTextField))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(loginPasswordTextField)))))
                 .addGap(239, 239, 239))
         );
         loginPanelLayout.setVerticalGroup(
@@ -412,11 +413,11 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private void loginLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginLoginButtonActionPerformed
         // TODO add your handling code here:
         
-        if(LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getSelectedText())) {
+        if(LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getText())) {
             CardLayout cl = (CardLayout)(boxPanel.getLayout());
             cl.next(boxPanel);
         } else {
-            System.out.println("Hello");
+            System.out.println("Not a user!");
         }
         //CardLayout cl = (CardLayout)(boxPanel.getLayout());
         //cl.next(boxPanel);
@@ -458,7 +459,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private javax.swing.JButton loginLoginButton;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel loginPasswordLabel;
-    private javax.swing.JPasswordField loginPasswordTextField;
+    private javax.swing.JTextField loginPasswordTextField;
     private javax.swing.JLabel loginTitleLabel;
     private javax.swing.JLabel loginUsernameLabel;
     private javax.swing.JTextField loginUsernameTextField;

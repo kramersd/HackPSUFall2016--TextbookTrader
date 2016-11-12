@@ -35,9 +35,10 @@ public class LoginController {
             while(rs.next()) {
                 String userNameBase = rs.getString("USERNAME");
                 String passwordBase = rs.getString("PASSWORD");
-                System.out.println(passwordBase);
+                //System.out.println(password);
+                //System.out.println(passwordBase);
                 if(userName.equals(userNameBase) && password.equals(passwordBase)) {
-                    System.out.println("THIS HAPPENED");
+                    //System.out.println("THIS HAPPENED");
                     return true;
                 } else {
                     return false;
