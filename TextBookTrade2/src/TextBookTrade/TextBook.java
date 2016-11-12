@@ -11,10 +11,11 @@ package TextBookTrade;
  * @author owenm
  */
 public class TextBook {
-    private String authorLastName, authorFirstName, title, isbn13, courseUsed, condition;
+    private String authorLastName, authorFirstName, title, isbn13, courseUsed, condition, currentOwner;
     private int edition;
+    private double listingPrice;
     
-    public TextBook(String t, String ln, String fn, String i, String course, int e, String c){
+    public TextBook(String t, String ln, String fn, String i, String course, int e, String c, String o, double p){
         title = t;
         authorLastName = ln;
         authorFirstName = fn;
@@ -22,6 +23,8 @@ public class TextBook {
         courseUsed = course;
         edition = e;
         condition = c;
+        currentOwner = o;
+        listingPrice = p;
     }
 
     public String getAuthorLastName() {
@@ -78,5 +81,13 @@ public class TextBook {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public String getCurrentOwner() {
+        return currentOwner;
+    }
+
+    public void setCurrentOwner(String currentOwner) {
+        this.currentOwner = currentOwner;
     }
 }
