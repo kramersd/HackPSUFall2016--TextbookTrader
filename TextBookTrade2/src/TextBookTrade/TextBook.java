@@ -13,8 +13,9 @@ package TextBookTrade;
 public class TextBook {
     private String authorLastName, authorFirstName, title, isbn13, courseUsed, condition, currentOwner;
     private int edition;
+    private double listingPrice;
     
-    public TextBook(String t, String ln, String fn, String i, String course, int e, String c, String o){
+    public TextBook(String t, String ln, String fn, String i, String course, int e, String c, String o, double p){
         title = t;
         authorLastName = ln;
         authorFirstName = fn;
@@ -23,6 +24,7 @@ public class TextBook {
         edition = e;
         condition = c;
         currentOwner = o;
+        listingPrice = p;
     }
 
     public String getAuthorLastName() {
