@@ -182,7 +182,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
         boxPanel.add(loginPanel, "card2");
 
-        searchTextField.setText("jTextField1");
+        searchTextField.setText("Enter Search Criteria");
 
         searchLabel.setText("Search:");
 
@@ -431,7 +431,23 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     }//GEN-LAST:event_viewBookListingButtonActionPerformed
 
     private void searchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchComboBoxActionPerformed
-        // TODO add your handling code here:
+        String criteria;
+        if(searchComboBox.getSelectedItem().equals("Last"))
+            criteria = "ALASTNAME";
+        else if(searchComboBox.getSelectedItem().equals("First"))
+            criteria = "AFIRSTNAME";
+        else if(searchComboBox.getSelectedItem().equals("ISBN"))
+            criteria = "ISBN";
+        else
+            criteria = "TITLE";
+        //System.out.println(searchTextField.getText());
+        try {
+            rstm.setQuery("SELECT * FROM LISTINGS WHERE " + criteria + " = '" + searchTextField.getText() + "'");
+        } catch (SQLException ex) {
+            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalStateException ex) {
+            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_searchComboBoxActionPerformed
 
     private void loginUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldActionPerformed

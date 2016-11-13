@@ -36,7 +36,9 @@ public class ListingsController {
     //[1][3] ISBN
     // etc
     
-    
+    public void setTable(String query){
+        
+    }
     /*
     public static Object[][] getRowData() {
         Connection con = DataBaseConnect.getConnection();
