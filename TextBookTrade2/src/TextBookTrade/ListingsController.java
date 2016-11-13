@@ -35,6 +35,9 @@ public class ListingsController {
     //[1][2] AFirstName
     //[1][3] ISBN
     // etc
+    
+    
+    /*
     public static Object[][] getRowData() {
         Connection con = DataBaseConnect.getConnection();
         try {
@@ -72,6 +75,7 @@ public class ListingsController {
     public static Object[] getColumnData() {
         return colData;
     }
-  
+  */
+    
     
 }
