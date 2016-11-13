@@ -93,12 +93,12 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         searchLabel = new javax.swing.JLabel();
         searchComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new JTable(rstm);
+        listingTable = new JTable(rstm);
         viewBookListingButton = new javax.swing.JButton();
         menuPanel = new javax.swing.JPanel();
         logoutButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        settingsButton = new javax.swing.JButton();
+        myBooksButton = new javax.swing.JButton();
         bookPanel = new javax.swing.JPanel();
         informationPanel = new javax.swing.JPanel();
         textBookImageFrame = new javax.swing.JPanel();
@@ -107,7 +107,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         AuthorLabel = new javax.swing.JLabel();
         isbnLabel = new javax.swing.JLabel();
         courseLabel = new javax.swing.JLabel();
-        closeButton = new javax.swing.JButton();
+        returnButton = new javax.swing.JButton();
         bookTitle = new javax.swing.JLabel();
         bookAuthor = new javax.swing.JLabel();
         bookISBN = new javax.swing.JLabel();
@@ -194,8 +194,8 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
             }
         });
 
-        jTable1.setModel(rstm);
-        jScrollPane1.setViewportView(jTable1);
+        listingTable.setModel(rstm);
+        jScrollPane1.setViewportView(listingTable);
 
         viewBookListingButton.setText("View Selected Book Details");
         viewBookListingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -237,12 +237,12 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
         logoutButton.setText("Logout");
 
-        jButton4.setText("Settings");
+        settingsButton.setText("Settings");
 
-        jButton5.setText("My Books");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        myBooksButton.setText("My Books");
+        myBooksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                myBooksButtonActionPerformed(evt);
             }
         });
 
@@ -252,9 +252,9 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(myBooksButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(settingsButton)
                 .addGap(18, 18, 18)
                 .addComponent(logoutButton)
                 .addContainerGap())
@@ -265,8 +265,8 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logoutButton)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(settingsButton)
+                    .addComponent(myBooksButton))
                 .addContainerGap())
         );
 
@@ -329,10 +329,10 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         courseLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         courseLabel.setText("Course:");
 
-        closeButton.setText("Close");
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
+        returnButton.setText("Return");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonActionPerformed(evt);
+                returnButtonActionPerformed(evt);
             }
         });
 
@@ -351,7 +351,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
             informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, informationPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(informationPanelLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
@@ -402,7 +402,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                             .addComponent(courseLabel)
                             .addComponent(bookCourse))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -440,10 +440,10 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private void viewBookListingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookListingButtonActionPerformed
         CardLayout cl = (CardLayout)(boxPanel.getLayout());
         cl.next(boxPanel);
-        bookTitle.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 3));
-        bookAuthor.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 0) + ", " + jTable1.getValueAt(jTable1.getSelectedRow(), 1));
-        bookISBN.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 2));
-        bookCourse.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 7));
+        bookTitle.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 3));
+        bookAuthor.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 0) + ", " + listingTable.getValueAt(listingTable.getSelectedRow(), 1));
+        bookISBN.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 2));
+        bookCourse.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 7));
 
 
     }//GEN-LAST:event_viewBookListingButtonActionPerformed
@@ -472,14 +472,14 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginUsernameTextFieldActionPerformed
 
-    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         CardLayout cl = (CardLayout)(boxPanel.getLayout());
         cl.next(boxPanel);
         cl.next(boxPanel);
-    }//GEN-LAST:event_closeButtonActionPerformed
+    }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jButton5.setText("Books For Sale");
+    private void myBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBooksButtonActionPerformed
+        myBooksButton.setText("Books For Sale");
         try {
             rstm.setQuery("SELECT * FROM OWNED");
         } catch (SQLException ex) {
@@ -487,7 +487,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         } catch (IllegalStateException ex) {
             Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_myBooksButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -499,15 +499,12 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private javax.swing.JLabel bookTitle;
     private javax.swing.JLabel bookTitleLabel;
     private javax.swing.JPanel boxPanel;
-    private javax.swing.JButton closeButton;
     private javax.swing.JLabel courseLabel;
     private javax.swing.JPanel informationPanel;
     private javax.swing.JLabel isbnLabel;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable listingTable;
     private javax.swing.JButton loginLoginButton;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel loginPasswordLabel;
@@ -518,10 +515,13 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private javax.swing.JButton logoutButton;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel menuPanel;
+    private javax.swing.JButton myBooksButton;
+    private javax.swing.JButton returnButton;
     private javax.swing.JComboBox<String> searchComboBox;
     private javax.swing.JLabel searchLabel;
     private javax.swing.JPanel searchResultsPane;
     private javax.swing.JTextField searchTextField;
+    private javax.swing.JButton settingsButton;
     private javax.swing.JPanel textBookImageFrame;
     private javax.swing.JButton viewBookListingButton;
     // End of variables declaration//GEN-END:variables
