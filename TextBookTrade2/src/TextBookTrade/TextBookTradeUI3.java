@@ -457,7 +457,13 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         }
         //System.out.println(searchTextField.getText());
         try {
-            ListingsController.setQuery("SELECT * FROM LISTINGS WHERE " + criteria + " = '" + searchTextField.getText() + "'");
+            //If nothing is typed in the search box
+            if(searchTextField.getText().equals("Enter Search Criteria")) {
+                ListingsController.setQuery("SELECT * FROM LISTINGS ORDER BY " + criteria);
+            } else {
+                ListingsController.setQuery("SELECT * FROM LISTINGS WHERE " + criteria + " = '" + searchTextField.getText() + "'");
+            }
+            
         } catch (IllegalStateException ex) {
             Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -19,13 +19,7 @@ import java.util.logging.Logger;
 
 public class ListingsController {
     
-    private static ArrayList<String> lastNameList = new ArrayList<>();
-    private static ArrayList<String> firstNameList = new ArrayList<>();
-    private static ArrayList<String> ISBNList = new ArrayList<>();
-    private static ArrayList<String> titleList = new ArrayList<>();
-    private static ArrayList<String> editionList = new ArrayList<>();
-    private static ArrayList<String> ownerList = new ArrayList<>();
-    private static ArrayList<Double> priceList = new ArrayList<>();
+
     
     private static String R_QUERY = "SELECT * FROM LISTINGS";
     public static ResultSetTableModel rstm; 
