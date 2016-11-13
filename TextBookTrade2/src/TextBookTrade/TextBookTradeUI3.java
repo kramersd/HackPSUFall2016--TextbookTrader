@@ -145,8 +145,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                                 .addComponent(loginUsernameTextField))
                             .addGroup(loginPanelLayout.createSequentialGroup()
                                 .addGap(44, 44, 44)
-                                .addComponent(loginLoginButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(loginLoginButton))
                             .addGroup(loginPanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(loginPasswordTextField)))))
@@ -176,7 +175,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
         searchLabel.setText("Search:");
 
-        searchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First", "Last", "ISBN", "Title" }));
         searchComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchComboBoxActionPerformed(evt);
