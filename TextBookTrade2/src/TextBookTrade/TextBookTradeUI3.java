@@ -1,7 +1,6 @@
 package TextBookTrade;
 
 import java.awt.CardLayout;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
@@ -18,26 +17,20 @@ import javax.swing.JTable;
  */
 public class TextBookTradeUI3 extends javax.swing.JApplet {
 
-    private ResultSetTableModel rstm;
 
     /**
      * Initializes the applet TextBookTradeUI3
      */
     @Override
     public void init() {
-        try {
-            /* Set the Nimbus look and feel */
-            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-             */
-            rstm = new ResultSetTableModel("jdbc:derby://localhost:1527/TextBookTrader", "java", "java", "SELECT * FROM LISTINGS");
-            //System.out.println(rstm.getColumnName(0));
-        } catch (SQLException ex) {
-            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        try {
+/* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        //System.out.println(rstm.getColumnName(0));
+                try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -91,7 +84,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         searchLabel = new javax.swing.JLabel();
         searchComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listingTable = new JTable(rstm);
+        listingTable = new javax.swing.JTable();
         viewBookListingButton = new javax.swing.JButton();
         menuPanel = new javax.swing.JPanel();
         logoutButton = new javax.swing.JButton();
@@ -192,7 +185,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
             }
         });
 
-        listingTable.setModel(rstm);
+        listingTable.setModel(ListingsController.setTable());
         jScrollPane1.setViewportView(listingTable);
 
         viewBookListingButton.setText("View Selected Book Details");
@@ -464,9 +457,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         }
         //System.out.println(searchTextField.getText());
         try {
-            rstm.setQuery("SELECT * FROM LISTINGS WHERE " + criteria + " = '" + searchTextField.getText() + "'");
-        } catch (SQLException ex) {
-            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+            ListingsController.setQuery("SELECT * FROM LISTINGS WHERE " + criteria + " = '" + searchTextField.getText() + "'");
         } catch (IllegalStateException ex) {
             Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -486,20 +477,16 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         if (myBooksButton.getText().equals("My Books")) {
             myBooksButton.setText("Books For Sale");
             try {
-                rstm.setQuery("SELECT * FROM OWNED");
+                ListingsController.setQuery("SELECT * FROM OWNED");
 
-            } catch (SQLException ex) {
-                Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalStateException ex) {
                 Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else if(myBooksButton.getText().equals("Books For Sale")){
             myBooksButton.setText("My Books");
             try {
-                rstm.setQuery("SELECT * FROM LISTINGS");
+                ListingsController.setQuery("SELECT * FROM LISTINGS");
 
-            } catch (SQLException ex) {
-                Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalStateException ex) {
                 Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
             }
