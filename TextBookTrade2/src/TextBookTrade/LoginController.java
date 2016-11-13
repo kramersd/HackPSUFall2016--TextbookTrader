@@ -23,12 +23,12 @@ public class LoginController {
     
     private static Statement statement;
     
-    private static String RetrievalQuery = "SELECT * FROM JAVA.CREDENTIALS";
+    private static String RetrievalQuery = "SELECT * FROM JAVA.CREDENTIALS WHERE USERNAME = '";
     
     public static Boolean authenticateUser(String userName, String password) {
         
         Connection con = DataBaseConnect.getConnection();
-        RetrievalQuery = RetrievalQuery + " WHERE USERNAME= '" + userName + "'";
+        RetrievalQuery = RetrievalQuery + userName + "'";
         try {
             statement = con.createStatement();
             ResultSet rs = statement.executeQuery(RetrievalQuery);
@@ -39,8 +39,10 @@ public class LoginController {
                 //System.out.println(passwordBase);
                 if(userName.equals(userNameBase) && password.equals(passwordBase)) {
                     //System.out.println("THIS HAPPENED");
+                    RetrievalQuery = "SELECT * FROM JAVA.CREDENTIALS WHERE USERNAME = '";
                     return true;
                 } else {
+                    RetrievalQuery = "SELECT * FROM JAVA.CREDENTIALS WHERE USERNAME = '";
                     return false;
                 }
             }
