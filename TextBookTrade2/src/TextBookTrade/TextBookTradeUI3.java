@@ -240,6 +240,11 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         jButton4.setText("Settings");
 
         jButton5.setText("My Books");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
@@ -325,6 +330,11 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         courseLabel.setText("Course:");
 
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         bookTitle.setText("jLabel2");
         bookTitle.setName(""); // NOI18N
@@ -461,6 +471,23 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private void loginUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginUsernameTextFieldActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        CardLayout cl = (CardLayout)(boxPanel.getLayout());
+        cl.next(boxPanel);
+        cl.next(boxPanel);
+    }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        jButton5.setText("Books For Sale");
+        try {
+            rstm.setQuery("SELECT * FROM OWNED");
+        } catch (SQLException ex) {
+            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalStateException ex) {
+            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
