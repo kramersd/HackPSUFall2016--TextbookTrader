@@ -234,6 +234,11 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         );
 
         logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
 
         settingsButton.setText("Settings");
 
@@ -500,6 +505,12 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
             }
         }
     }//GEN-LAST:event_myBooksButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        CardLayout cl = (CardLayout) (boxPanel.getLayout());
+        cl.next(boxPanel);
+        cl.next(boxPanel);
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
