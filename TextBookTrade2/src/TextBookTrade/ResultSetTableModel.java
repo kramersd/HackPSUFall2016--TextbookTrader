@@ -30,7 +30,6 @@ public class ResultSetTableModel extends AbstractTableModel {
         connection = DriverManager.getConnection(url, username, password);
         
         statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        
         connectedToDatabase = true;
         
         setQuery(query);
@@ -104,9 +103,9 @@ public class ResultSetTableModel extends AbstractTableModel {
     public void setQuery(String query) throws SQLException, IllegalStateException {
         if(!connectedToDatabase)
             throw new IllegalStateException("Not Connected to Database");
-        
+        System.out.println(query);
         resultSet = statement.executeQuery(query);
-        
+     
         metaData = resultSet.getMetaData();
         
         resultSet.last();
