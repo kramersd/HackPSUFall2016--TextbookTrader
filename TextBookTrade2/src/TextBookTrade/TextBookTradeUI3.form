@@ -258,6 +258,9 @@
                           </Table>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JTable(ListingsController.getRowData(), ListingsController.getColumnData())"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

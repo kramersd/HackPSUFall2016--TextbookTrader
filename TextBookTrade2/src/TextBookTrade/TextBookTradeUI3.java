@@ -1,8 +1,10 @@
 package TextBookTrade;
 
 
-import TextBookTrade.LoginController;
+
 import java.awt.CardLayout;
+import javax.swing.JTable;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -80,7 +82,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         searchLabel = new javax.swing.JLabel();
         searchComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable1 = new JTable(ListingsController.getRowData(), ListingsController.getColumnData());
         bookListingPane = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         bookListing = new javax.swing.JTextArea();
