@@ -61,7 +61,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable() {
                 public void run() {
-                    setSize(600, 450);
+                    setSize(650, 450);
                     initComponents();
                 }
             });
@@ -94,9 +94,6 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         searchComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new JTable(rstm);
-        bookListingPane = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        bookListing = new javax.swing.JTextArea();
         viewBookListingButton = new javax.swing.JButton();
         menuPanel = new javax.swing.JPanel();
         logoutButton = new javax.swing.JButton();
@@ -165,7 +162,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap(119, Short.MAX_VALUE)
                 .addComponent(loginTitleLabel)
                 .addGap(18, 18, 18)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -196,21 +193,30 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         jTable1.setModel(rstm);
         jScrollPane1.setViewportView(jTable1);
 
+        viewBookListingButton.setText("View Selected Book Details");
+        viewBookListingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBookListingButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout searchResultsPaneLayout = new javax.swing.GroupLayout(searchResultsPane);
         searchResultsPane.setLayout(searchResultsPaneLayout);
         searchResultsPaneLayout.setHorizontalGroup(
             searchResultsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchResultsPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(searchResultsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(searchResultsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(searchResultsPaneLayout.createSequentialGroup()
                         .addComponent(searchLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(viewBookListingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         searchResultsPaneLayout.setVerticalGroup(
             searchResultsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,44 +224,11 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                 .addGroup(searchResultsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchLabel)
-                    .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewBookListingButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        bookListing.setColumns(20);
-        bookListing.setRows(5);
-        jScrollPane2.setViewportView(bookListing);
-
-        viewBookListingButton.setText("View Book Listing");
-        viewBookListingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewBookListingButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout bookListingPaneLayout = new javax.swing.GroupLayout(bookListingPane);
-        bookListingPane.setLayout(bookListingPaneLayout);
-        bookListingPaneLayout.setHorizontalGroup(
-            bookListingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bookListingPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookListingPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(viewBookListingButton)
-                .addGap(50, 50, 50))
-        );
-        bookListingPaneLayout.setVerticalGroup(
-            bookListingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bookListingPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewBookListingButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         logoutButton.setText("Logout");
@@ -293,16 +266,13 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(searchResultsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bookListingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(358, Short.MAX_VALUE)
+                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(searchResultsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,9 +280,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                 .addGap(18, 18, 18)
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bookListingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(searchResultsPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(searchResultsPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(19, 19, 19))
         );
 
@@ -371,7 +339,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                     .addComponent(AuthorLabel)
                     .addComponent(isbnLabel)
                     .addComponent(courseLabel))
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
         informationPanelLayout.setVerticalGroup(
             informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,8 +425,6 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AuthorLabel;
-    private javax.swing.JTextArea bookListing;
-    private javax.swing.JPanel bookListingPane;
     private javax.swing.JPanel bookPanel;
     private javax.swing.JLabel bookTitleLabel;
     private javax.swing.JPanel boxPanel;
@@ -470,7 +436,6 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton loginLoginButton;
     private javax.swing.JPanel loginPanel;
