@@ -108,6 +108,10 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
         isbnLabel = new javax.swing.JLabel();
         courseLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
+        bookTitle = new javax.swing.JLabel();
+        bookAuthor = new javax.swing.JLabel();
+        bookISBN = new javax.swing.JLabel();
+        bookCourse = new javax.swing.JLabel();
 
         boxPanel.setLayout(new java.awt.CardLayout());
 
@@ -322,6 +326,15 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
         closeButton.setText("Close");
 
+        bookTitle.setText("jLabel2");
+        bookTitle.setName(""); // NOI18N
+
+        bookAuthor.setText("jLabel2");
+
+        bookISBN.setText("jLabel2");
+
+        bookCourse.setText("jLabel2");
+
         javax.swing.GroupLayout informationPanelLayout = new javax.swing.GroupLayout(informationPanel);
         informationPanel.setLayout(informationPanelLayout);
         informationPanelLayout.setHorizontalGroup(
@@ -335,11 +348,24 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                 .addComponent(textBookImageFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bookTitleLabel)
-                    .addComponent(AuthorLabel)
-                    .addComponent(isbnLabel)
-                    .addComponent(courseLabel))
-                .addContainerGap(316, Short.MAX_VALUE))
+                    .addGroup(informationPanelLayout.createSequentialGroup()
+                        .addComponent(courseLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(bookCourse))
+                    .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, informationPanelLayout.createSequentialGroup()
+                            .addComponent(bookTitleLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bookTitle))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, informationPanelLayout.createSequentialGroup()
+                            .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(AuthorLabel)
+                                .addComponent(isbnLabel))
+                            .addGap(18, 18, 18)
+                            .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(bookISBN)
+                                .addComponent(bookAuthor)))))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
         informationPanelLayout.setVerticalGroup(
             informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,14 +376,22 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
                         .addComponent(textBookImageFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(informationPanelLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(bookTitleLabel)
+                        .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bookTitleLabel)
+                            .addComponent(bookTitle))
                         .addGap(18, 18, 18)
-                        .addComponent(AuthorLabel)
+                        .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AuthorLabel)
+                            .addComponent(bookAuthor))
                         .addGap(18, 18, 18)
-                        .addComponent(isbnLabel)
+                        .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(isbnLabel)
+                            .addComponent(bookISBN))
                         .addGap(18, 18, 18)
-                        .addComponent(courseLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(courseLabel)
+                            .addComponent(bookCourse))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -396,6 +430,12 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     private void viewBookListingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookListingButtonActionPerformed
         CardLayout cl = (CardLayout)(boxPanel.getLayout());
         cl.next(boxPanel);
+        bookTitle.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 3));
+        bookAuthor.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 0) + ", " + jTable1.getValueAt(jTable1.getSelectedRow(), 1));
+        bookISBN.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 2));
+        bookCourse.setText((String)jTable1.getValueAt(jTable1.getSelectedRow(), 7));
+
+
     }//GEN-LAST:event_viewBookListingButtonActionPerformed
 
     private void searchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchComboBoxActionPerformed
@@ -425,7 +465,11 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AuthorLabel;
+    private javax.swing.JLabel bookAuthor;
+    private javax.swing.JLabel bookCourse;
+    private javax.swing.JLabel bookISBN;
     private javax.swing.JPanel bookPanel;
+    private javax.swing.JLabel bookTitle;
     private javax.swing.JLabel bookTitleLabel;
     private javax.swing.JPanel boxPanel;
     private javax.swing.JButton closeButton;

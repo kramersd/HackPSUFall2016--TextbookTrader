@@ -352,12 +352,31 @@
                           <Component id="textBookImageFrame" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="bookTitleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="AuthorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="isbnLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="courseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="courseLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="bookCourse" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bookTitleLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="bookTitle" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="AuthorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="isbnLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="bookISBN" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bookAuthor" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="316" max="32767" attributes="0"/>
+                          <EmptySpace pref="264" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -371,16 +390,28 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="bookTitleLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="bookTitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bookTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="AuthorLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="AuthorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bookAuthor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="isbnLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="isbnLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bookISBN" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="courseLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="courseLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bookCourse" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                           <Component id="closeButton" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -463,6 +494,27 @@
                 <Component class="javax.swing.JButton" name="closeButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Close"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="bookTitle">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel2"/>
+                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="bookAuthor">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel2"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="bookISBN">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel2"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="bookCourse">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel2"/>
                   </Properties>
                 </Component>
               </SubComponents>
