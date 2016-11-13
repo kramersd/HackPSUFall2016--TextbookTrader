@@ -1,7 +1,5 @@
 package TextBookTrade;
 
-
-
 import java.awt.CardLayout;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -14,14 +12,14 @@ import javax.swing.JTable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Shane Kramer <sbk5234@psu.edu>
  */
 public class TextBookTradeUI3 extends javax.swing.JApplet {
-   
+
     private ResultSetTableModel rstm;
+
     /**
      * Initializes the applet TextBookTradeUI3
      */
@@ -32,7 +30,7 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
             //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
             /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
             * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-            */
+             */
             rstm = new ResultSetTableModel("jdbc:derby://localhost:1527/TextBookTrader", "java", "java", "SELECT * FROM LISTINGS");
             //System.out.println(rstm.getColumnName(0));
         } catch (SQLException ex) {
@@ -424,40 +422,41 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
 
     private void loginLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginLoginButtonActionPerformed
         // TODO add your handling code here:
-        
-        if(LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getText())) {
-            CardLayout cl = (CardLayout)(boxPanel.getLayout());
+
+        if (LoginController.authenticateUser(loginUsernameTextField.getText(), loginPasswordTextField.getText())) {
+            CardLayout cl = (CardLayout) (boxPanel.getLayout());
             cl.next(boxPanel);
         } else {
             System.out.println("Not a user!");
         }
         //CardLayout cl = (CardLayout)(boxPanel.getLayout());
         //cl.next(boxPanel);
-        
-        
+
+
     }//GEN-LAST:event_loginLoginButtonActionPerformed
 
     private void viewBookListingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookListingButtonActionPerformed
-        CardLayout cl = (CardLayout)(boxPanel.getLayout());
+        CardLayout cl = (CardLayout) (boxPanel.getLayout());
         cl.next(boxPanel);
-        bookTitle.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 3));
-        bookAuthor.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 0) + ", " + listingTable.getValueAt(listingTable.getSelectedRow(), 1));
-        bookISBN.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 2));
-        bookCourse.setText((String)listingTable.getValueAt(listingTable.getSelectedRow(), 7));
+        bookTitle.setText((String) listingTable.getValueAt(listingTable.getSelectedRow(), 3));
+        bookAuthor.setText((String) listingTable.getValueAt(listingTable.getSelectedRow(), 0) + ", " + listingTable.getValueAt(listingTable.getSelectedRow(), 1));
+        bookISBN.setText((String) listingTable.getValueAt(listingTable.getSelectedRow(), 2));
+        bookCourse.setText((String) listingTable.getValueAt(listingTable.getSelectedRow(), 7));
 
 
     }//GEN-LAST:event_viewBookListingButtonActionPerformed
 
     private void searchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchComboBoxActionPerformed
         String criteria;
-        if(searchComboBox.getSelectedItem().equals("Last"))
+        if (searchComboBox.getSelectedItem().equals("Last")) {
             criteria = "ALASTNAME";
-        else if(searchComboBox.getSelectedItem().equals("First"))
+        } else if (searchComboBox.getSelectedItem().equals("First")) {
             criteria = "AFIRSTNAME";
-        else if(searchComboBox.getSelectedItem().equals("ISBN"))
+        } else if (searchComboBox.getSelectedItem().equals("ISBN")) {
             criteria = "ISBN";
-        else
+        } else {
             criteria = "TITLE";
+        }
         //System.out.println(searchTextField.getText());
         try {
             rstm.setQuery("SELECT * FROM LISTINGS WHERE " + criteria + " = '" + searchTextField.getText() + "'");
@@ -473,19 +472,32 @@ public class TextBookTradeUI3 extends javax.swing.JApplet {
     }//GEN-LAST:event_loginUsernameTextFieldActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        CardLayout cl = (CardLayout)(boxPanel.getLayout());
+        CardLayout cl = (CardLayout) (boxPanel.getLayout());
         cl.next(boxPanel);
         cl.next(boxPanel);
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void myBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBooksButtonActionPerformed
-        myBooksButton.setText("Books For Sale");
-        try {
-            rstm.setQuery("SELECT * FROM OWNED");
-        } catch (SQLException ex) {
-            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalStateException ex) {
-            Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+        if (myBooksButton.getText().equals("My Books")) {
+            myBooksButton.setText("Books For Sale");
+            try {
+                rstm.setQuery("SELECT * FROM OWNED");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalStateException ex) {
+                Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(myBooksButton.getText().equals("Books For Sale")){
+            myBooksButton.setText("My Books");
+            try {
+                rstm.setQuery("SELECT * FROM LISTINGS");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalStateException ex) {
+                Logger.getLogger(TextBookTradeUI3.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_myBooksButtonActionPerformed
 
